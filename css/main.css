@@ -5,7 +5,12 @@
 }
 
 
-p{
+
+
+body{
 	font-family: 'Open Sans Condensed', sans-serif;
 }
 
+#map {
+        height: 100%;
+      }
