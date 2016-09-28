@@ -20,15 +20,18 @@
 </head>
 
 <body>
+ 
 
+<div class="content">
     <section class="container header">
-        <h1 class="logo">Monk's <br /> Cafe</h1>
+      
+        <h1 id="circle"><div class="logo">Monk's Cafe</div></h1>
         <h2>"The Coffee Shop"</h2>
     </section>
-    <section class="container reservationArea">
+    <div class="container reservationArea">
         <h3>Reservations</h3>
         <div class="row">
-            <div class="col-md-6">
+            <div class="reserveNow col-lg-4 col-lg-offset-2">
                 <h4>Make a reservation</h4>
                 <form>
                     <div class="form-group">
@@ -39,11 +42,12 @@
                         <label for="Day">Day</label>
                         <input type="text" class="form-control" id="Day" placeholder="Day">
                     </div>
-            </div>
-            <button type="submit" class="btn btn-default">Make Reservation</button>
+                     <button type="submit" class="btn btn-default">Make Reservation</button>
             </form>
-        </div>
-        <div class="col-md-6">
+            </div>
+           
+        
+        <div class="col-lg-4 col-lg-offset-1">
             <h4>Existing Reservations</h4>
             <table class="table table-striped">
                 <thead>
@@ -55,9 +59,10 @@
                 </tbody>
             </table>
         </div>
-    </section>
+    </div>
     <div class="container comeDine">
         <h3>Come Dine with Us</h3>
+
         <div id="map"></div>
          <script>
       function initMap() {
@@ -70,14 +75,21 @@
       }
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=ServerKey&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
     async defer></script>
     
     </div>
     <section class=" container customerReviews">
-        <div class="customerQuote">“Big lettuce, big carrots, tomatoes like volleyballs.”</div>
-        <div class="customerAuth">— Jerry Seinfeld, on The BIG Salad</div>
+        <div class="row">
+        
+        <div class="col-lg-6 customerAuth">
+        <img src="images/jerry.jpg"><br />
+        — Jerry Seinfeld, on The BIG Salad</div>
+        <div class="col-lg-6 customerQuote">
+        “Big lettuce, big carrots, tomatoes like volleyballs.”</div>
+        </div>
     </section>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -90,3 +102,5 @@
 </body>
 
 </html>
+
+
