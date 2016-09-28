@@ -1,3 +1,16 @@
+ // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBQV1gkIgYlHXoihkBsc-0WVcgjuZVik4k",
+    authDomain: "tinas-app.firebaseapp.com",
+    databaseURL: "https://tinas-app.firebaseio.com",
+    storageBucket: "tinas-app.appspot.com",
+    messagingSenderId: "721146835362"
+  };
+  firebase.initializeApp(config);
+
+
+
+
 ///////////////////////////////////////////////////////
 ///////////RECIPE FORM/////////////////////////////////
 ///////////////////////////////////////////////////////
