@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Monks Cafe :: The Coffee Shop</title>
+    <title>Recipe Collector</title>
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -20,87 +20,136 @@
 </head>
 
 <body>
- 
+    <div class="content">
+        <section class="container header">
+            <h1 class="logo">New Recipe</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Create a recipe</a></li>
+                    <li><a href="list.html">See all Recipes</a></li>
+                </ul>
+            </nav>
+            <div id="circle"><img src="images/mixer.png" width="50%"></div>
+        </section>
+        <div class="container" id="recipeContent">
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2 basicInfo">
+                    <form id="recipeInfo">
+                        <h4>from the kitchen of</h4>
+                        <div class="form-group">
+                            <label class="sr-only" for="recipeAuth">Author Name</label>
+                            <input type="text" class="form-control" id="recipeAuth" placeholder="Author">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="recipeTitle">Recipe Title</label>
+                            <input type="text" class="form-control" id="recipeTitle" placeholder="Recipe Title">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="recipeDesc">Recipe Description</label>
+                            <textarea class="form-control" rows="3" id="recipeDesc" placeholder="Description"></textarea>
+                        </div>
+                    </form>
+                    <div class="upload">
+                        <h4>Upload a Header Image for your recipe</h4>
+                        <p>Images should be 1170px x 300px. Select a file below. When it is uploaded, a notification will show.</p>
+                        <h6>Choose File</h6>
+                        <input type="file" id="file" name="file" />
+                        <h6>Wait for it...</h6>
+                        <span id="linkbox"></span>
+                    </div>
+                    <h4>Ingredients</h4>
+                    <div id="recipeIngredients">
+                        <form class="ingredient">
+                            <div class="form-group">
+                                <label class="sr-only" for="ingredientAmount">Amount</label>
+                                <input type="text" class="form-control amt" placeholder="Amount">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="ingredientMeasurement">Measurement</label>
+                                <input type="text" class="form-control measure" placeholder="Unit of Measurement">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="ingredientLabel">Label</label>
+                                <input type="text" class="form-control ingLabel" placeholder="Label (i.e. Lemons)">
+                            </div>
+                        </form>
+                    </div>
+                    <button id="addIngredient" type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Ingredient</button>
+                    <div class="clear"></div>
+                </div>
+                <div class="col-lg-4 col-lg-offset-1">
+                    <h4>Directions</h4>
+                    <div id="recipeDirections">
+                        <form class="direction">
+                            <div class="form-group">
+                                <label class="sr-only" for="ingredientLabel">Add a direction</label>
+                                <textarea class="form-control eachDirection" rows="3" placeholder="Add a direction"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <button id="addDirection" type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Direction</button>
+                </div>
+                <div class="clear"></div>
+                <div class="row">
+                <div class="wrap">
+                    <button id="saveRecipe" type="submit" class="btn btn-primary btn-lg">Save Recipe</button>
+                    <button id="makeRecipes" type="submit" class="btn btn-warning btn-lg">I'm lazy, make some recipes</button>
 
-<div class="content">
-    <section class="container header">
-      
-        <h1 id="circle"><div class="logo">Monk's Cafe</div></h1>
-        <h2>"The Coffee Shop"</h2>
-    </section>
-    <div class="container reservationArea">
-        <h3>Reservations</h3>
-        <div class="row">
-            <div class="reserveNow col-lg-4 col-lg-offset-2">
-                <h4>Make a reservation</h4>
-                <form>
-                    <div class="form-group">
-                        <label for="Name">Name</label>
-                        <input type="text" class="form-control" id="Name" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="Day">Day</label>
-                        <input type="text" class="form-control" id="Day" placeholder="Day">
-                    </div>
-                     <button type="submit" class="btn btn-default">Make Reservation</button>
-            </form>
+                </div>
+                </div>
             </div>
-           
-        
-        <div class="col-lg-4 col-lg-offset-1">
-            <h4>Existing Reservations</h4>
-            <table class="table table-striped">
-                <thead>
-                    <th>Name</th>
-                    <th>Day</th>
-                </thead>
-                <tbody>
-                <!-- javascript to fill in content -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="container comeDine">
-        <h3>Come Dine with Us</h3>
+            <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            <script src="js/handlebars-v4.0.5.js"></script>
+            <script src="js/main.js"></script>
+            <script>
+            var auth = firebase.auth();
+            var storageRef = firebase.storage().ref();
 
-        <div id="map"></div>
-         <script>
-      function initMap() {
-        // Create a map object and specify the DOM element for display.
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.8054491, lng: -73.9654415},
-          scrollwheel: false,
-          zoom: 8
-        });
-      }
-
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-    async defer></script>
-    
-    </div>
-    <section class=" container customerReviews">
-        <div class="row">
-        
-        <div class="col-lg-6 customerAuth">
-        <img src="images/jerry.jpg"><br />
-        — Jerry Seinfeld, on The BIG Salad</div>
-        <div class="col-lg-6 customerQuote">
-        “Big lettuce, big carrots, tomatoes like volleyballs.”</div>
-        </div>
-    </section>
-    </div>
-    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
-   
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="js/handlebars-v4.0.5.js"></script>
-    <script src="js/main.js"></script>
-
+            function handleFileSelect(evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+                var file = evt.target.files[0];
+                var metadata = {
+                    'contentType': file.type
+                };
+                // Push to child path.
+                // [START oncomplete]
+                storageRef.child('images/' + file.name).put(file, metadata).then(function(snapshot) {
+                    console.log('Uploaded', snapshot.totalBytes, 'bytes.');
+                    console.log(snapshot.metadata);
+                    var url = snapshot.metadata.downloadURLs[0];
+                    console.log('File available at', url);
+                    imageStorage = url;
+                    document.getElementById('linkbox').innerHTML = '<h4>File Uploaded</h4>';
+                    // [START_EXCLUDE]
+                    //document.getElementById('linkbox').innerHTML = '<a href="' +  url + '">Click For File</a>';
+                    // [END_EXCLUDE]
+                }).catch(function(error) {
+                    // [START onfailure]
+                    console.error('Upload failed:', error);
+                    // [END onfailure]
+                });
+                // [END oncomplete]
+            }
+            window.onload = function() {
+                document.getElementById('file').addEventListener('change', handleFileSelect, false);
+                document.getElementById('file').disabled = true;
+                auth.onAuthStateChanged(function(user) {
+                    if (user) {
+                        console.log('Anonymous user signed-in.', user);
+                        document.getElementById('file').disabled = false;
+                    } else {
+                        console.log('There was no anonymous session. Creating a new anonymous user.');
+                        // Sign the user in anonymously since accessing Storage requires the user to be authorized.
+                        auth.signInAnonymously();
+                    }
+                });
+            }
+            </script>
 </body>
 
 </html>
-
-

@@ -1,31 +1,74 @@
-@import 'https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans+Condensed:300';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Raleway:200';
 
-.logo{
-	font-family: 'Amatic SC', cursive;
-	text-align: center;
-	padding-top: 23px;
-	font-size: 45px;
+body{
+	background: url('../images/food/food.png');
+}
+
+p{font-size:18px;}
+nav{position: absolute;
+    bottom: -45px;
+    z-index: 4;
+}
+
+nav li a{
+	font-size: 25px;
+	color: white;
 	
+	padding-right: 25px;
+}
+
+
+
+nav li a:hover{
+	color:#fee408;
+}
+
+nav ul{
+	list-style-type: none;
+}
+
+
+nav li{
+	float: left;
+}
+.logo{
+	font-family: 'Raleway', sans-serif;
+	font-weight: thin;
+	text-align: left;
+	padding: 23px 0 0 20px;
+	font-size: 45px;
+	color:#ffffff;
+	text-shadow: 2px 2px #333333;
+	position: absolute;
+	z-index: 2;
+	
+}
+
+.upload{
+	padding-bottom: 30px;
 }
 
 #circle {
 	width: 200px;
-	height: 100px;
-	background: red;
-	-moz-border-radius: 100px / 50px;
-	-webkit-border-radius: 100px / 50px;
-	border-radius: 100px / 50px;
+	height: 200px;
+	background: white;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+	border-radius: 200px;
+	z-index: 3;
+	position: absolute;
+	
+}
 
 
+.header #circle{
+	
+	margin: 15% 41%;
+}
 
-/*
-	width: 150px;
-	height: 150px;
-	background: red;
-	-moz-border-radius: 75px;
-	-webkit-border-radius: 75px;
-	border-radius: 75px;
-	*/
+
+#circle img{
+	margin: 30px 25%;
 }
 
 .reserveNow{
@@ -43,7 +86,7 @@
 	
 }
 .customerQuote{
-	font-family: 'Amatic SC', cursive;
+	font-family: 'Raleway', sans-serif;
 	font-size: 60px;
 	
 	background-color: #00008B;
@@ -70,18 +113,31 @@ h4{
 	margin-top:10px;
 }
 
+#linkbox{
+	color:red;
+}
 
 h3{
 	text-align: center;
-	background-color: red;
+	background-color: #333333;
 	display: block;
 	color:#ffffff;
-	width: 45%;
+	padding:5px;
 	margin: 0 auto 30px auto;
-	font-family: 'Amatic SC', cursive;
+	font-family: 'Raleway', sans-serif;
 	font-size: 30px;
 
 }
+
+.wrap{
+	text-align: center;
+}
+
+.wrap .btn{
+
+}
+
+
 
 
 .comeDine{
@@ -89,27 +145,126 @@ h3{
 
 }
 
-
-.header{
-	background: transparent url('../images/toms-restaurant.jpg');
-
-	background-position: 0 -859px;
-	position: relative;
-	height: 200px;
-	margin-bottom: 150px;
-}
-
-.header h1{
+.header_bg{
+	position: absolute;
+	top:0;
 	
-	margin:150px auto 0 auto;
+	width:100%;
+	height: 240px;
+	overflow: hidden;
+	
 }
+.header_bg img{
+	z-index: -1;
+
+}
+.header{
+	padding-right:0;
+	padding-left: 0;
+	/*background-image: url('../images/blueberries.jpg');*/
+	background-position: 0 0;
+	position: relative;
+	height: 300px;
+	margin-bottom: 76px;
+	border-bottom: 60px solid #999999;
+}
+
+.header .container{
+	margin-right: 0;
+	margin-left: 0;
+}
+
+
+
+
+
 
 .content{
 
 	background-color:#ffffff;
-	
+	width:1170px;
 	display: block;
+	margin: 0 auto;
+	box-shadow: 4px 4px 5px #333333;
+	min-height:800px;
+padding-bottom:100px;
+	margin-bottom: 50px;
 }
+
+#recipeInfo{
+	margin-bottom: 30px;
+	background-color: #f5f5f5;
+	display: block;
+	padding: 20px;
+}
+
+.clear{clear:both;}
+
+#recipeIngredients .amt{
+	width: 17%;
+	margin-right: 10px;
+	float: left;
+}
+
+#recipeIngredients .measure{
+	width:35%;
+	float:left;
+	margin-right: 10px;
+}
+
+#recipeIngredients .ingLabel{
+	width:42%;
+	float:left;
+}
+
+#recipeIngredients input{
+	margin-top:10px;
+}
+
+
+#addIngredient{
+	margin-top: 10px;
+}
+
+
+#readRecipe li{
+	font-size: 21px;
+}
+
+#readRecipeInfo ul li{
+	list-style-type: none;
+	margin-left:0;
+
+}
+#readRecipeInfo{
+	list-style-type: none;
+	margin-left:0;
+	margin-bottom: 30px;
+	background-color: #f5f5f5;
+	display: block;
+	padding: 20px;
+}
+
+#auth{
+	font-weight: bold;
+}
+
+#directionList li, #ingredientList li{
+	margin-bottom: 5px;
+}
+
+#recipeList{
+	
+	list-style-type: none;
+}
+
+#recipeList li{
+	padding-bottom: 10px;
+    margin-top: 10px;
+    border-bottom: 1px dotted #efefef;
+}
+
+
 
 #map {
         height: 200px;
